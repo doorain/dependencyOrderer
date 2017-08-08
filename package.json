@@ -1,0 +1,19 @@
+{
+  "name": "package-order-factory",
+  "version": "1.0.0",
+  "description": "Exercise to write code that will determine the order of install for packages and dependencies.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/doorain/dependencyOrderer.git"
+  },
+  "author": "Dorian Morgan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/doorain/dependencyOrderer/issues"
+  },
+  "homepage": "https://github.com/doorain/dependencyOrderer#readme"
+}
