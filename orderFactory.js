@@ -19,24 +19,24 @@ var orderFactory = {};
   // Search down packages dependencies
     for(dependency in packages) {
      if (packages.hasOwnProperty(dependency)) {
-        seen(dependency);
+        seenList(dependency);
       }
     }
 
-    function seen(dependency) {
+    function seenList(dependency) {
      if (!packages.hasOwnProperty(dependency)) {
        return false;
      }
      if (packages[dependency] !== '') {
-        seen(packages[dependency]);
+        seenList(packages[dependency]);
      }
       result.push(dependency);
       // delete unwanted dependency
       delete packages[dependency];
     }
 
-  console.log(result)
-    // return(result.join(", "));
+  // console.log(result.join(", "))
+    return(result.join(", "));
 
   };
 
