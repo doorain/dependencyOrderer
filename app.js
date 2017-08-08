@@ -2,14 +2,13 @@
 //
 // [ "KittenService: CamelCaser", "CamelCaser: " ]
 // Should return "CamelCaser, KittenService"
-//
-// ["KittenService: ",
-//  "Leetmeme: Cyberportal",
-//  "Cyberportal: Ice",
-//  "CamelCaser: KittenService",
-//  "Fraudstream: Leetmeme",
-//  "Ice: "
-// ];
+var testArray = ["KittenService: ",
+"Leetmeme: Cyberportal",
+"Cyberportal: Ice",
+"CamelCaser: KittenService",
+"Fraudstream: ",
+"Ice: "
+];
 // Should return "KittenService, Ice, Cyberportal, Leetmeme, CamelCaser, Fraudstream"
 //
 // [
@@ -45,7 +44,7 @@ var depOrderer = function(array){
     var dependency = arraySplit[0];
 
     var value = arraySplit[1].trim();
-    console.log(dependency)
+
     packages[dependency] = value;
 
 
@@ -72,6 +71,9 @@ var depOrderer = function(array){
     delete packages[dependency];
   }
 
+console.log(result);
   return(result);
 
 };
+
+depOrderer(testArray);
