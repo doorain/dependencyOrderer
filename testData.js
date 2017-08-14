@@ -3,6 +3,7 @@ var testData = {};
 // Test Data and Solutions
 //
 testData.testA = [ "KittenService: CamelCaser", "CamelCaser: " ]
+testData.resultsA = "CamelCaser, KittenService";
 // Should return "CamelCaser, KittenService"
   testData.testB = [
     "KittenService: ",

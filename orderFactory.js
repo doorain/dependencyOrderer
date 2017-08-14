@@ -10,9 +10,9 @@ var orderFactory = {};
 
     for (var i = 0; i < array.length; i ++) {
       //need to slipt the array upon iteration
-      var arraySplit = array[i].split(':');
-      var dependency = arraySplit[0];
-      var value = arraySplit[1].trim();
+      var splitArray = array[i].split(':');
+      var dependency = splitArray[0];
+      var value = splitArray[1].trim();
       packages[dependency] = value;
     }
 
@@ -25,7 +25,7 @@ var orderFactory = {};
 
     function seenList(dependency) {
      if (!packages.hasOwnProperty(dependency)) {
-       return false;
+       return;
      }
      if (packages[dependency] !== '') {
         seenList(packages[dependency]);
