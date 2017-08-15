@@ -8,6 +8,7 @@ var orderFactory = {};
     // the final list in order
     var result = [];
 
+
     for (var i = 0; i < array.length; i ++) {
       //need to slipt the array upon iteration
       var splitArray = array[i].split(':');
@@ -35,9 +36,9 @@ var orderFactory = {};
       delete packages[dependency];
     }
 
-  // console.log(result.join(", "))
+  console.log(result.join(", "))
     return(result.join(", "));
 
   };
 
-module.exports = orderFactory;
+// module.exports = orderFactory;
