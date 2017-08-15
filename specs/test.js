@@ -18,11 +18,11 @@ describe('errors when', function() {
     });
   });
 
-  describe('should error out ', function() {
-    it('on infinite loop', function () {
+  describe('should error out', function() {
+    it('on Infinite Loop', function () {
       expect(function () {
         var orderFactory = orderFactory(['a:b', 'b:a']);
-				orderFactory().install();
+				orderFactory.install();
       }).toThrow('Don\'t get stuck in a Cycle');
     });
   });

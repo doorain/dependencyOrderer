@@ -1,44 +1,47 @@
 //module exported as orderFactory
 
-var orderFactory = {};
-// I am going to first just Wrap this in a function called
-  orderFactory = function(array){
-
-    var packages = [];
+ var orderFactory = function(array){
+    var packages = {};
     // the final list in order
     var result = [];
-
-
     for (var i = 0; i < array.length; i ++) {
       //need to slipt the array upon iteration
       var splitArray = array[i].split(':');
-      var dependency = splitArray[0].trim();;
+      var dep = splitArray[0].trim();
       var value = splitArray[1].trim();
-      packages[dependency] = value;
+      packages[dep] = value;
     }
-
   // Search down packages dependencies
-    for(dependency in packages) {
+    for(var dependency in packages) {
      if(packages.hasOwnProperty(dependency)) {
-      seenList(dependency);
+         try {
+           //give seenList empty array
+           seenList(dependency,[]);
+         }
+        catch (err) {
+          return err;
+        }
       }
     }
 
-    function seenList(dependency) {
+    function seenList(dependency,depth) {
      if(!packages.hasOwnProperty(dependency)) {
        return;
      }
-     if (packages[dependency] !== '') {
-        seenList(packages[dependency]);
+     if (depth.indexOf(packages[dependency]) >= 0) {
+      throw "Don\'t get stuck in a Cycle";
      }
-      result.push(dependency);
+     if (packages[dependency] !== '') {
+      depth.push(dependency);
+      seenList(packages[dependency],depth);
+     }
+     result.push(dependency);
       // delete unwanted dependency
       delete packages[dependency];
     }
 
   // console.log(result.join(", "))
     return(result.join(", "));
-
   };
 
 module.exports = orderFactory;
