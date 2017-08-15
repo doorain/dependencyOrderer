@@ -3,11 +3,11 @@ var testData = require('./testData')
 
 
 
-var runner = function(){
+var runOrderFactor = function(){
   console.log(orderFactory(testData.testA));
   console.log(orderFactory(testData.testB));
   console.log(orderFactory(testData.testC));
   console.log(orderFactory(testData.testD));
 
 }
-runner();
+runOrderFactor();

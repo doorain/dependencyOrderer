@@ -23,14 +23,16 @@
         }
       }
     }
-
+    //depth keeps track of current recursive iteration
     function seenList(dependency,depth) {
      if(!packages.hasOwnProperty(dependency)) {
        return;
      }
+     //use index of to find loop
      if (depth.indexOf(packages[dependency]) >= 0) {
-      throw "Don\'t get stuck in a Cycle";
+      throw "INVALID: Don\'t get stuck in a Cycle";
      }
+     //recursive call and push to depth
      if (packages[dependency] !== '') {
       depth.push(dependency);
       seenList(packages[dependency],depth);
