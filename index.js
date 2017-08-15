@@ -10,8 +10,3 @@ var runner = function(){
 
 }
 runner();
-
-
-// console.log(orderFactory(testData.testA));
-// console.log(orderFactory(testData.testB));
-// console.log(orderFactory(testData.testC));

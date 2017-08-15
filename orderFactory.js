@@ -12,20 +12,20 @@ var orderFactory = {};
     for (var i = 0; i < array.length; i ++) {
       //need to slipt the array upon iteration
       var splitArray = array[i].split(':');
-      var dependency = splitArray[0];
+      var dependency = splitArray[0].trim();;
       var value = splitArray[1].trim();
       packages[dependency] = value;
     }
 
   // Search down packages dependencies
     for(dependency in packages) {
-     if (packages.hasOwnProperty(dependency)) {
-        seenList(dependency);
+     if(packages.hasOwnProperty(dependency)) {
+      seenList(dependency);
       }
     }
 
     function seenList(dependency) {
-     if (!packages.hasOwnProperty(dependency)) {
+     if(!packages.hasOwnProperty(dependency)) {
        return;
      }
      if (packages[dependency] !== '') {
@@ -36,9 +36,9 @@ var orderFactory = {};
       delete packages[dependency];
     }
 
-  console.log(result.join(", "))
+  // console.log(result.join(", "))
     return(result.join(", "));
 
   };
 
-// module.exports = orderFactory;
+module.exports = orderFactory;

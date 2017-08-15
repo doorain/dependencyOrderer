@@ -1,6 +1,6 @@
 describe('Order Factory', function() {
 
-  it('is an object', function() {
+  it('is an function', function() {
     expect(typeof orderFactory).toBe('function');
   });
 
@@ -18,32 +18,13 @@ describe('errors when', function() {
     });
   });
 
-  describe('should throw error', function() {
-    it('from infinite loop', function () {
+  describe('should error out ', function() {
+    it('on infinite loop', function () {
       expect(function () {
         var orderFactory = orderFactory(['a:b', 'b:a']);
-				orderFactory.install();
-      }).toThrow('cicular reference');
+				orderFactory().install();
+      }).toThrow('Don\'t get stuck in a Cycle');
     });
   });
 
-  describe('examples', function() {
-    it('expects the first to function', function(){
-      var input = ["KittenService: CamelCaser","CamelCaser: "
-      ];
-      expect(new orderFactory(input)).toEqual('CamelCaser, KittenService');
-    });
-
-    it('expects the second to function', function() {
-      var input = [
-        "KittenService: ",
-        "Leetmeme: Cyberportal",
-        "Cyberportal: Ice",
-        "CamelCaser: KittenService",
-        "Fraudstream: Leetmeme",
-        "Ice: "
-      ];
-      expect(new orderFactory(input)).toMatch('KittenService, Ice, Cyberportal, Letmeme, CamelCaser, Fraudstream');
-    });
-  });
 });
